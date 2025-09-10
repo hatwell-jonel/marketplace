@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "./ui/badge"
 import { useRouter } from "next/navigation"
 import { sendEmail } from "@/app/sendEmail"
+import Image from "next/image"
 
 interface Item {
   id: number
@@ -75,7 +76,7 @@ export function ItemDetail({ item }: ItemDetailProps) {
           {/* Left side - Image */}
           <div className="space-y-4">
             <div className="aspect-square relative overflow-hidden rounded-lg bg-gray-100">
-              <img
+              <Image
                 src={item.image} 
                 alt={item.title || "Item image"}
                 className="object-cover"

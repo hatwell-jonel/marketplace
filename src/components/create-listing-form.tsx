@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -11,8 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Upload, X, Loader2 } from "lucide-react"
 import { categories } from "@/lib/categories"
-import { useRouter } from 'next/navigation'
 import { supabase } from "@/lib/supabaseClient"
+import Image from "next/image"
 
 export function CreateListingForm() {
   const [photo, setPhoto] = useState<File | null>(null)
@@ -78,7 +77,7 @@ export function CreateListingForm() {
   const uploadImage = async (file: File): Promise<string | null> => {
     try {
       const fileName = `${Date.now()}-${file.name}`
-      const { data, error } = await supabase.storage
+      const { error } = await supabase.storage
         .from('posts-images') // Make sure this bucket exists
         .upload(fileName, file)
 
@@ -210,7 +209,7 @@ export function CreateListingForm() {
               {photo && photoPreview && (
                 <div className="mt-4">
                   <div className="relative inline-block">
-                    <img
+                    <Image
                       src={photoPreview || "/placeholder.svg"}
                       alt="Preview"
                       className="w-32 h-24 object-cover rounded-lg border"
@@ -349,7 +348,7 @@ export function CreateListingForm() {
               <CardContent className="space-y-4">
                 <div className="aspect-video bg-muted rounded-lg border-2 border-dashed border-muted-foreground/30 overflow-hidden">
                   {photoPreview ? (
-                    <img
+                    <Image
                       src={photoPreview || "/placeholder.svg"}
                       alt="Main preview"
                       className="w-full h-full object-cover"

@@ -9,6 +9,7 @@ import { supabase } from "@/lib/supabaseClient"
 import Link from "next/link"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
+import Image from "next/image"
 
 interface Item {
   id: number
@@ -188,7 +189,7 @@ export function CategoryContent({ slug }: CategoryContentProps) {
                   {/* Item Image */}
                   <div className="aspect-video bg-muted overflow-hidden">
                     {item.image ? (
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.title}
                         width={400}
