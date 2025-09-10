@@ -2,18 +2,14 @@ import { ItemDetail } from "@/components/item-detail"
 import { supabase } from "@/lib/supabaseClient"
 import { MarketplaceHeader } from "@/components/marketplace-header"
 
-interface ItemPageProps {
-  params: {
-    id: string
-  }
-}
+type ItemPageProps = { params: Promise<{ id: string }> };
 
 export default async function ItemPage({ params }: ItemPageProps) {
-
+    const { id } = await params;
   const { data: item, error } = await supabase
     .from("items")
     .select("*")
-    .eq("id", params.id)
+    .eq("id", id)
     .single()
 
   if (error || !item) {

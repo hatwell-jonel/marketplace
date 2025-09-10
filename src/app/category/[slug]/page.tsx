@@ -6,7 +6,6 @@ interface CategoryPageProps {
   params: Promise<{ slug: string }>;
 }
 
-
 export default async function CategoryPage({
   params,
 }: CategoryPageProps) {
