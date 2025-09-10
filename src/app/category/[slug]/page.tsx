@@ -3,20 +3,20 @@ import { MarketplaceSidebar } from "@/components/marketplace-sidebar"
 import { CategoryContent } from "@/components/category-content"
 
 interface CategoryPageProps {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>;
 }
 
-export default function CategoryPage({
+
+export default async function CategoryPage({
   params,
 }: CategoryPageProps) {
+  const { slug } = await params;
   return (
     <div className="min-h-screen bg-background">
       <MarketplaceHeader />
       <div className="flex">
         <MarketplaceSidebar />
-        <CategoryContent slug={params.slug} />
+        <CategoryContent slug={slug} />
       </div>
     </div>
   )
