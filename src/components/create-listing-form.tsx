@@ -19,7 +19,6 @@ export function CreateListingForm() {
   const [photoPreview, setPhotoPreview] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const router = useRouter()
 
   const [formData, setFormData] = useState({
     title: "",

@@ -104,7 +104,7 @@ export function CategoryContent({ slug }: CategoryContentProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center py-12">
             <h1 className="text-2xl font-bold text-foreground mb-2">Category Not Found</h1>
-            <p className="text-muted-foreground">The category "{slug}" doesn't exist.</p>
+            <p className="text-muted-foreground">The category &quot;{slug}&quot; doesn&apos;t exist.</p>
           </div>
         </div>
       </main>
@@ -191,6 +191,8 @@ export function CategoryContent({ slug }: CategoryContentProps) {
                       <img
                         src={item.image}
                         alt={item.title}
+                        width={400}
+                        height={225}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
@@ -199,6 +201,7 @@ export function CategoryContent({ slug }: CategoryContentProps) {
                       </div>
                     )}
                   </div>
+
 
                   {/* Item Details */}
                   <CardContent className="p-4">
