@@ -1,14 +1,20 @@
 import { MarketplaceHeader } from "@/components/marketplace-header"
 import { MarketplaceSidebar } from "@/components/marketplace-sidebar"
-import { MarketplaceContent } from "@/components/marketplace-content"
+import { CategoryContent } from "@/components/category-content"
 
-export default function MarketplacePage() {
+interface CategoryPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div className="min-h-screen bg-background">
       <MarketplaceHeader />
       <div className="flex">
         <MarketplaceSidebar />
-        <MarketplaceContent />
+        <CategoryContent slug={params.slug} />
       </div>
     </div>
   )
