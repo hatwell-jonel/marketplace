@@ -6,12 +6,10 @@ interface CategoryPageProps {
   params: {
     slug: string
   }
-  searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export default function CategoryPage({
   params,
-  searchParams,
 }: CategoryPageProps) {
   return (
     <div className="min-h-screen bg-background">
