@@ -212,7 +212,9 @@ export function CreateListingForm() {
                     <Image
                       src={photoPreview || "/placeholder.svg"}
                       alt="Preview"
-                      className="w-32 h-24 object-cover rounded-lg border"
+                      width={400}
+                      height={400}
+                      className="w-32 h-24 object-contain rounded-lg border"
                     />
                     <button
                       type="button"
@@ -351,7 +353,10 @@ export function CreateListingForm() {
                     <Image
                       src={photoPreview || "/placeholder.svg"}
                       alt="Main preview"
-                      className="w-full h-full object-cover"
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-contain rounded-lg border"
+
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-muted-foreground">

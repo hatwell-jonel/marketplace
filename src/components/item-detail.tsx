@@ -80,7 +80,9 @@ export function ItemDetail({ item }: ItemDetailProps) {
               <Image
                 src={item.image} 
                 alt={item.title || "Item image"}
-                className="object-cover"
+                width={400}
+                height={400}
+                className="object-contain w-full h-full"
               />
             </div>
           </div>
