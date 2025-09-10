@@ -50,6 +50,7 @@ export function ItemDetail({ item }: ItemDetailProps) {
       setMessage("I'm interested in your item!")
       setSuccess(true)
     } catch (error) {
+      console.error('Error sending message:', error)
       setSuccess(false)
     } finally {
       setSending(false)
